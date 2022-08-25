@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurryFox</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        main{
+            background: #2b2a33;
+            height: 100vh;
+            width: 100vw;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .con{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40vh;
+            animation: load-title 300ms ease-in 300ms;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            transform: translateY(-20px);
+        }
+
+        @keyframes load-title {
+            0%{
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+
+            100%{
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }   
+
+        .logo{
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo span{
+            margin-left: 10px;
+        }
+
+        .search{
+            background-color: #42414d;
+            width: 850px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        #duck{
+            width: 800px;
+            height: 30px;
+            resize: none;
+            color: white;
+            font-size: 1.3rem;
+            background-color: #42414d;
+            border: none;
+            margin-right: 10px;
+        }
+
+        #duck:focus{
+            outline: none;
+        }
+
+        .fImg{
+            width: 7%;
+            height: auto;
+        }
+
+        .tux-img{
+            width: 3%;
+            margin: 0 10px;
+            height: auto;
+        }
+
+    </style>
+
+</head>
+<body>
+    <main>
+        <div class="con">
+            <div class="logo">
+                <img src="https://i.redd.it/dxvvc1o38co51.png" alt="uwu" class="fImg">
+                <span>FurryFox</span>
+            </div>
+                <div class="search">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" alt="tux uwu" class="tux-img">
+                    <input type="text" id="duck" placeholder="Search world wide web with uwu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16" style="margin-right: 10px;cursor:pointer;" onclick="duckSearch()">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    </svg>
+                </div>
+        </div>
+    </main>
+<script>
+    document.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            duckSearch()
+        }
+    });
+
+    function duckSearch(){
+    const duck = document.getElementById("duck").value;
+
+    if(duck){
+        window.open("https://duckduckgo.com/?t=ffab&q=" + duck, "_self")
+        document.getElementById("duck").value = "";
+    }
+}
+</script>
+
+</body>
+</html>
